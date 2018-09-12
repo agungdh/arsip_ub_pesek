@@ -44,14 +44,14 @@
                 <label for="tgl_mulai_kontrak">Tanggal Mulai Kontrak</label>
                 <div class="form-group">
                     <div class="form-line">
-                        <input placeholder="Masukkan Tanggal Mulai Kontrak" type="text" name="data[tgl_mulai_kontrak]" id="tgl_mulai_kontrak" class="form-control datepicker" required>
+                        <input placeholder="Masukkan Tanggal Mulai Kontrak" type="date" name="data[tgl_mulai_kontrak]" id="tgl_mulai_kontrak" class="form-control datepicker" required>
                     </div>
                 </div>
 
                 <label for="tgl_selesai_kontrak">Tanggal Selesai Kontrak</label>
                 <div class="form-group">
                     <div class="form-line">
-                        <input placeholder="Masukkan Tanggal Selesai Kontrak" type="text" name="data[tgl_selesai_kontrak]" id="tgl_selesai_kontrak" class="form-control datepicker" required>
+                        <input placeholder="Masukkan Tanggal Selesai Kontrak" type="date" name="data[tgl_selesai_kontrak]" id="tgl_selesai_kontrak" class="form-control datepicker" required>
                     </div>
                 </div>
                 
@@ -65,7 +65,7 @@
                 <label for="nilai">Nilai</label>
                 <div class="form-group">
                     <div class="form-line">
-                        <input placeholder="Masukkan Nilai" type="text" name="data[nilai]" id="nilai" class="form-control" required>
+                        <input placeholder="Masukkan Nilai" type="number" min="0" name="data[nilai]" id="nilai" class="form-control" required>
                     </div>
                 </div>
                 

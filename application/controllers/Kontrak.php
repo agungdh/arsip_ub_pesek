@@ -20,7 +20,6 @@ class Kontrak extends CI_Controller {
 
 	function tambah() {
 		$data['isi'] = 'kontrak/tambah';
-		$data['js'] = 'kontrak/tambah_js';
 		$data['nav'] = 'kontrak/nav';
 
 		$this->load->view('template/template', $data);
