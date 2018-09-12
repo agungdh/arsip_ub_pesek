@@ -35,7 +35,7 @@
                                     </button>
                                   </a>
                                   <a href="javascript:void(0)">
-                                    <button type="button" class="btn bg-red waves-effect">
+                                    <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_unit; ?>')">
                                       <i class="material-icons">delete</i>
                                     </button>
                                   </a>

@@ -33,6 +33,7 @@ $now = date('YmdHis')
 
     <!-- baru ada -->
     <link href="<?php echo base_url('assets'); ?>/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets'); ?>/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
 
     <!-- View Css -->
     <?php isset($css) ?  $this->load->view($css) : null; ?>
@@ -142,6 +143,7 @@ $now = date('YmdHis')
     <script src="<?php echo base_url('assets'); ?>/plugins/jquery-datatable/jquery.dataTables.js"></script>
     <script src="<?php echo base_url('assets'); ?>/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
     <script src="<?php echo base_url('assets'); ?>/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/plugins/sweetalert/sweetalert.min.js"></script>
 
     <!-- View Js -->
     <?php isset($js) ?  $this->load->view($js) : null; ?>

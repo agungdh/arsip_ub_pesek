@@ -20,7 +20,6 @@ class Unit extends CI_Controller {
 
 	function tambah() {
 		$data['isi'] = 'unit/tambah';
-		$data['js'] = 'unit/tambah_js';
 		$data['nav'] = 'unit/nav';
 
 		$this->load->view('template/template', $data);
@@ -28,7 +27,6 @@ class Unit extends CI_Controller {
 
 	function ubah($id) {
 		$data['isi'] = 'unit/ubah';
-		$data['js'] = 'unit/ubah_js';
 		$data['nav'] = 'unit/nav';
 		$data['data']['unit'] = $this->db->get_where('unit', ['id_bidang' => $id])->row();
 
