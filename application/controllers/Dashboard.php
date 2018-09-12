@@ -5,9 +5,9 @@ class Dashboard extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		if ($this->session->login != true) {
-			redirect(base_url());
-		}
+		// if ($this->session->login != true) {
+		// 	redirect(base_url());
+		// }
 	}
 
 	function index() {

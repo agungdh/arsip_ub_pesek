@@ -1,96 +1,138 @@
 <?php
-$now = date('YmdHis');
+$now = date('YmdHis')
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/'); ?>EasyAutocomplete-1.3.5/easy-autocomplete.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/'); ?>EasyAutocomplete-1.3.5/easy-autocomplete.themes.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/'); ?>css/main.css">
-    <!-- Font-icon css-->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title><?php echo JUDUL; ?></title>
+<html>
 
-    <!-- Favicon -->
-    <?php
-    if (file_exists('uploads/favicon')) {
-      $favicon = 'uploads/favicon';
-    } else {
-      $favicon = 'assets/favicon.png';
-    }
-    ?>
-    <link rel="shortcut icon" href="<?php echo base_url($favicon) . '?time=' . $now; ?>"/>
-  </head>
-  <body class="app sidebar-mini rtl">
-    <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="<?php echo base_url(); ?>"><?php echo JUDUL; ?></a>
-      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="javascript:void(0)" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
-      <!-- Navbar Right Menu-->
-      <ul class="app-nav">
-        <!-- User Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="javascript:void(0)" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
-          <ul class="dropdown-menu settings-menu dropdown-menu-right">
-            <li><a class="dropdown-item" href="<?php echo base_url('profil'); ?>"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-            <li><a class="dropdown-item" href="<?php echo base_url('logout'); ?>"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-    </header>
-    <!-- Sidebar menu-->
-    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-    <aside class="app-sidebar">
-      <!-- User Image -->
-      <?php
-      if (file_exists('uploads/userimage/' . $this->session->id_user)) {
-        $userimage = 'uploads/userimage/' . $this->session->id_user;
-      } else {
-        $userimage = 'assets/user.png';
-      }
-      ?>
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<?php echo base_url($userimage) . '?time=' . $now; ?>" alt="User Image">
-        <div>
-          <p class="app-sidebar__user-name"><?php echo $this->session->nama; ?></p>
-          <p class="app-sidebar__user-designation"><?php echo $this->session->username; ?></p>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title><?php echo JUDUL ?></title>
+    <!-- Favicon-->
+    <link rel="icon" href="<?php echo base_url('assets'); ?>/favicon.ico?time=<?php echo $now ?>" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="<?php echo base_url('assets'); ?>/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="<?php echo base_url('assets'); ?>/plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="<?php echo base_url('assets'); ?>/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="<?php echo base_url('assets'); ?>/css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="<?php echo base_url('assets'); ?>/css/themes/all-themes.css" rel="stylesheet" />
+
+    <!-- View Css -->
+    <?php isset($css) ?  $this->load->view($css) : null; ?>
+</head>
+
+<body class="theme-red">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
         </div>
-      </div>
-      <ul class="app-menu">
-        <?php
-        $this->load->view('template/menu'); 
-        ?>
-      </ul>
-    </aside>
-    <main class="app-content">
-      <?php isset($data) ?  $this->load->view($isi,$data) : $this->load->view($isi); ?>
-    </main>
-    <!-- Start JS -->
-    <script src="<?php echo base_url('assets/'); ?>js/jquery-3.2.1.min.js"></script>
-    <script src="<?php echo base_url('assets/'); ?>js/popper.min.js"></script>
-    <script src="<?php echo base_url('assets/'); ?>js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url('assets/'); ?>js/main.js"></script>
-    
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/bootstrap-datepicker.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/bootstrap-notify.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/chart.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/moment.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/fullcalendar.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/jquery.vmap.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/jquery.vmap.sampledata.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/jquery.vmap.world.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/jquery-ui.custom.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/pace.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/select2.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/sweetalert2.all.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>js/plugins/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/'); ?>EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js"></script>
-    <!-- End JS -->
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="<?php echo base_url('assets'); ?>/index.html"><?php echo JUDUL ?></a>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="<?php echo base_url('assets'); ?>/images/user.png" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
+                    <div class="email">john.doe@example.com</div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="active"></li>
+                    <?php $this->load->view('template/menu'); ?>
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2018 <a href="https://github.com/agungdh/airnote">AIRnote</a>.
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
 
-    <!-- JS Manual -->
+    <section class="content">
+        <div class="container-fluid">
+            <?php isset($data) ?  $this->load->view($isi,$data) : $this->load->view($isi); ?>
+        </div>
+    </section>
+
+    <!-- Jquery Core Js -->
+    <script src="<?php echo base_url('assets'); ?>/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="<?php echo base_url('assets'); ?>/plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="<?php echo base_url('assets'); ?>/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="<?php echo base_url('assets'); ?>/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="<?php echo base_url('assets'); ?>/plugins/node-waves/waves.js"></script>
+
+    <!-- Custom Js -->
+    <script src="<?php echo base_url('assets'); ?>/js/admin.js"></script>
+
+    <!-- View Js -->
     <?php isset($js) ?  $this->load->view($js) : null; ?>
+</body>
 
-  </body>
 </html>
