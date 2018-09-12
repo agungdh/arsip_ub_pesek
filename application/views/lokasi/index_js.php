@@ -18,4 +18,8 @@ function hapus(id) {
         }
     });
 };
+
+$('[data-toggle="tooltip"]').tooltip({
+    container: 'body'
+});
 </script>

@@ -22,7 +22,7 @@
                                 <th style="text-align: center;">Nama Unit</th>
                                 <th style="text-align: center;">Lokasi</th>
                                 <th style="text-align: center;">Tanggal Mulai Kontrak</th>
-                                <th style="text-align: center;">Tanggal Akhir Kontrak</th>
+                                <th style="text-align: center;">Tanggal Selesai Kontrak</th>
                                 <th style="text-align: center;">NO KL</th>
                                 <th style="text-align: center;">Nilai</th>
                                 <th style="text-align: center;">Proses</th>
@@ -41,13 +41,18 @@
                               <td><?php echo $item->no_kl; ?></td>
                               <td><?php echo $this->pustaka->rupiah($item->nilai); ?></td>
                                 <td style="text-align: center;">
+                                  <a href="<?php echo base_url('detail_kontrak/index/' . $item->id_kontrak); ?>">
+                                    <button type="button" class="btn bg-cyan waves-effect" data-toggle="tooltip" data-placement="top" title="Detail Kontrak">
+                                      <i class="material-icons">more</i>
+                                    </button>
+                                  </a>
                                   <a href="<?php echo base_url('kontrak/ubah/' . $item->id_kontrak); ?>">
-                                    <button type="button" class="btn bg-blue waves-effect">
+                                    <button type="button" class="btn bg-blue waves-effect" data-toggle="tooltip" data-placement="top" title="Ubah">
                                       <i class="material-icons">edit</i>
                                     </button>
                                   </a>
                                   <a href="javascript:void(0)">
-                                    <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_kontrak; ?>')">
+                                    <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_kontrak; ?>')" data-toggle="tooltip" data-placement="top" title="Hapus">
                                       <i class="material-icons">delete</i>
                                     </button>
                                   </a>

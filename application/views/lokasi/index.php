@@ -30,12 +30,12 @@
                               <td><?php echo $item->nama_lokasi; ?></td>
                                 <td style="text-align: center;">
                                   <a href="<?php echo base_url('lokasi/ubah/' . $item->id_lokasi); ?>">
-                                    <button type="button" class="btn bg-blue waves-effect">
+                                    <button type="button" class="btn bg-blue waves-effect" data-toggle="tooltip" data-placement="top" title="Ubah">
                                       <i class="material-icons">edit</i>
                                     </button>
                                   </a>
                                   <a href="javascript:void(0)">
-                                    <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_lokasi; ?>')">
+                                    <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_lokasi; ?>')" data-toggle="tooltip" data-placement="top" title="Hapus">
                                       <i class="material-icons">delete</i>
                                     </button>
                                   </a>

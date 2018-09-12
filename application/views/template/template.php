@@ -34,6 +34,8 @@ $now = date('YmdHis')
     <!-- baru ada -->
     <link href="<?php echo base_url('assets'); ?>/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url('assets'); ?>/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <link href="<?php echo base_url('assets'); ?>/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+    <link href="<?php echo base_url('assets'); ?>/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
     <!-- View Css -->
     <?php isset($css) ?  $this->load->view($css) : null; ?>
@@ -144,6 +146,9 @@ $now = date('YmdHis')
     <script src="<?php echo base_url('assets'); ?>/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
     <script src="<?php echo base_url('assets'); ?>/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
     <script src="<?php echo base_url('assets'); ?>/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/plugins/momentjs/moment.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- View Js -->
     <?php isset($js) ?  $this->load->view($js) : null; ?>

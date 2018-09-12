@@ -36,12 +36,12 @@
                               <td><?php echo $item->no_telepon; ?></td>
                                 <td style="text-align: center;">
                                   <a href="<?php echo base_url('cv_pt/ubah/' . $item->id_cv_pt); ?>">
-                                    <button type="button" class="btn bg-blue waves-effect">
+                                    <button type="button" class="btn bg-blue waves-effect" data-toggle="tooltip" data-placement="top" title="Ubah">
                                       <i class="material-icons">edit</i>
                                     </button>
                                   </a>
                                   <a href="javascript:void(0)">
-                                    <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_cv_pt; ?>')">
+                                    <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_cv_pt; ?>')" data-toggle="tooltip" data-placement="top" title="Hapus">
                                       <i class="material-icons">delete</i>
                                     </button>
                                   </a>
