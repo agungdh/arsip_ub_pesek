@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-define('JUDUL', 'E-Disposisi');
+define('JUDUL', 'Aplikasi Pengarsipan Kontrak Kerja Unit Bangunan Divre IV PT. KAI');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace
