@@ -31,6 +31,7 @@ class Detail_kontrak extends CI_Controller {
 		$data['isi'] = 'detail_kontrak/ubah';
 		$data['nav'] = 'detail_kontrak/nav';
 		$data['data']['detail_kontrak'] = $this->db->get_where('detail_kontrak', ['id_detail_kontrak' => $id])->row();
+		$data['data']['kontrak'] = $this->db->get_where('kontrak', ['id_kontrak' => $data['data']['detail_kontrak']->id_kontrak])->row();
 
 		$this->load->view('template/template', $data);
 	}
@@ -44,13 +45,15 @@ class Detail_kontrak extends CI_Controller {
 			}
 		}
 
+		$data['nama_berkas'] = $_FILES['berkas']['name'];
+
 		$this->db->insert('detail_kontrak', $data);
 
 		$insert_id = $this->db->insert_id();
 
-		
+		move_uploaded_file($_FILES['berkas']['tmp_name'], 'uploads/berkas/' . $insert_id);
 
-		redirect(base_url('detail_kontrak'));
+		redirect(base_url('detail_kontrak/index/' . $data['id_kontrak']));
 	}
 
 	function aksi_ubah() {
@@ -70,15 +73,23 @@ class Detail_kontrak extends CI_Controller {
 			}
 		}
 
+		$data['nama_berkas'] = $_FILES['berkas']['name'];
+
+		$id_kontrak = $this->db->get_where('detail_kontrak', ['id_detail_kontrak' => $where['id_detail_kontrak']])->row()->id_kontrak;
+
 		$this->db->update('detail_kontrak', $data, $where);
 
-		redirect(base_url('detail_kontrak'));
+		move_uploaded_file($_FILES['berkas']['tmp_name'], 'uploads/berkas/' . $where['id_detail_kontrak']);
+
+		redirect(base_url('detail_kontrak/index/' . $id_kontrak));
 	}
 
 	function aksi_hapus($id) {
+		$id_kontrak = $this->db->get_where('detail_kontrak', ['id_detail_kontrak' => $id])->row()->id_kontrak;
+
 		$this->db->delete('detail_kontrak', ['id_detail_kontrak' => $id]);
 
-		redirect(base_url('detail_kontrak'));
+		redirect(base_url('detail_kontrak/index/' . $id_kontrak));
 	}
 
 }

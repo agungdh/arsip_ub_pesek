@@ -80,6 +80,8 @@
         <div class="body">
             <form method="post" action="<?php echo base_url('detail_kontrak/aksi_tambah'); ?>" enctype="multipart/form-data">
 
+                <input type="hidden" name="data[id_kontrak]" value="<?php echo $data['kontrak']->id_kontrak; ?>">
+
                 <label for="id_cv_pt">CV/PT</label>
                 <div class="form-group">
                     <select class="form-control show-tick" data-live-search="true" name="data[id_cv_pt]" id="id_cv_pt">

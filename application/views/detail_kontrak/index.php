@@ -107,13 +107,13 @@
                               <td><?php echo $item->status_kontrak == 'pm' ? 'Pemenang' : 'Pendamping'; ?></td>
                               <td><a href=""><?php echo $item->nama_berkas; ?></a></td>
                                 <td style="text-align: center;">
-                                  <a href="<?php echo base_url('detail_kontrak/ubah/' . $item->id_lokasi); ?>">
+                                  <a href="<?php echo base_url('detail_kontrak/ubah/' . $item->id_detail_kontrak); ?>">
                                     <button type="button" class="btn bg-blue waves-effect" data-toggle="tooltip" data-placement="top" title="Ubah">
                                       <i class="material-icons">edit</i>
                                     </button>
                                   </a>
                                   <a href="javascript:void(0)">
-                                    <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_lokasi; ?>')" data-toggle="tooltip" data-placement="top" title="Hapus">
+                                    <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_detail_kontrak; ?>')" data-toggle="tooltip" data-placement="top" title="Hapus">
                                       <i class="material-icons">delete</i>
                                     </button>
                                   </a>
