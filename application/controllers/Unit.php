@@ -1,33 +1,36 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Bidang extends CI_Controller {
+class Unit extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		if ($this->session->login != true) {
-			redirect(base_url());
-		}
+		// if ($this->session->login != true) {
+		// 	redirect(base_url());
+		// }
 	}
 
 	function index() {
-		$data['isi'] = 'bidang/index';
-		$data['js'] = 'bidang/index_js';
+		$data['isi'] = 'unit/index';
+		$data['js'] = 'unit/index_js';
+		$data['nav'] = 'unit/nav';
 
 		$this->load->view('template/template', $data);
 	}
 
 	function tambah() {
-		$data['isi'] = 'bidang/tambah';
-		$data['js'] = 'bidang/tambah_js';
+		$data['isi'] = 'unit/tambah';
+		$data['js'] = 'unit/tambah_js';
+		$data['nav'] = 'unit/nav';
 
 		$this->load->view('template/template', $data);
 	}
 
 	function ubah($id) {
-		$data['isi'] = 'bidang/ubah';
-		$data['js'] = 'bidang/ubah_js';
-		$data['data']['bidang'] = $this->db->get_where('bidang', ['id_bidang' => $id])->row();
+		$data['isi'] = 'unit/ubah';
+		$data['js'] = 'unit/ubah_js';
+		$data['nav'] = 'unit/nav';
+		$data['data']['unit'] = $this->db->get_where('unit', ['id_bidang' => $id])->row();
 
 		$this->load->view('template/template', $data);
 	}
@@ -41,9 +44,9 @@ class Bidang extends CI_Controller {
 			}
 		}
 
-		$this->db->insert('bidang', $data);
+		$this->db->insert('unit', $data);
 
-		redirect(base_url('bidang'));
+		redirect(base_url('unit'));
 	}
 
 	function aksi_ubah() {
@@ -63,15 +66,15 @@ class Bidang extends CI_Controller {
 			}
 		}
 
-		$this->db->update('bidang', $data, $where);
+		$this->db->update('unit', $data, $where);
 
-		redirect(base_url('bidang'));
+		redirect(base_url('unit'));
 	}
 
 	function aksi_hapus($id) {
-		$this->db->delete('bidang', ['id_bidang' => $id]);
+		$this->db->delete('unit', ['id_bidang' => $id]);
 
-		redirect(base_url('bidang'));
+		redirect(base_url('unit'));
 	}
 
 }

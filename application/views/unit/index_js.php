@@ -1,7 +1,8 @@
 <script type="text/javascript">
-var table = $('.datatable').DataTable( {
-    "scrollX": true,
-    "autoWidth": false,
+$(function () {
+    $('.js-basic-example').DataTable({
+        responsive: true
+    });
 });
 
 function hapus(id) {
@@ -13,7 +14,7 @@ function hapus(id) {
         confirmButtonText: 'Hapus!'
     }).then(function(result) {
         if (result.value) {
-            window.location = "<?php echo base_url('bidang/aksi_hapus/'); ?>" + id;
+            window.location = "<?php echo base_url('unit/aksi_hapus/'); ?>" + id;
         }
     });
 };

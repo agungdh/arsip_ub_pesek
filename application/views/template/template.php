@@ -31,6 +31,9 @@ $now = date('YmdHis')
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?php echo base_url('assets'); ?>/css/themes/all-themes.css" rel="stylesheet" />
 
+    <!-- baru ada -->
+    <link href="<?php echo base_url('assets'); ?>/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
     <!-- View Css -->
     <?php isset($css) ?  $this->load->view($css) : null; ?>
 </head>
@@ -109,6 +112,10 @@ $now = date('YmdHis')
 
     <section class="content">
         <div class="container-fluid">
+            <ol class="breadcrumb align-right">
+                <?php $this->load->view($nav); ?>
+            </ol>             
+            <br>
             <?php isset($data) ?  $this->load->view($isi,$data) : $this->load->view($isi); ?>
         </div>
     </section>
@@ -130,6 +137,11 @@ $now = date('YmdHis')
 
     <!-- Custom Js -->
     <script src="<?php echo base_url('assets'); ?>/js/admin.js"></script>
+
+    <!-- baru ada -->
+    <script src="<?php echo base_url('assets'); ?>/plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
 
     <!-- View Js -->
     <?php isset($js) ?  $this->load->view($js) : null; ?>
