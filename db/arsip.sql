@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 12, 2018 at 10:05 AM
+-- Generation Time: Sep 12, 2018 at 04:15 PM
 -- Server version: 10.1.34-MariaDB-0ubuntu0.18.04.1
 -- PHP Version: 7.2.7
 
@@ -64,6 +64,14 @@ CREATE TABLE `detail_kontrak` (
   `nama_berkas` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `detail_kontrak`
+--
+
+INSERT INTO `detail_kontrak` (`id_detail_kontrak`, `id_cv_pt`, `id_kontrak`, `status_kontrak`, `nama_berkas`) VALUES
+(5, 8, 4, 'pm', 'db_buntang.txt'),
+(6, 1, 4, 'pn', 'klui.xlsx');
+
 -- --------------------------------------------------------
 
 --
@@ -74,7 +82,6 @@ CREATE TABLE `kontrak` (
   `id_kontrak` int(11) NOT NULL,
   `id_unit` int(11) NOT NULL,
   `nama_pekerjaan` varchar(100) NOT NULL,
-  `tahun_kontrak` year(4) NOT NULL,
   `tgl_mulai_kontrak` date NOT NULL,
   `tgl_selesai_kontrak` date NOT NULL,
   `no_kl` varchar(30) NOT NULL,
@@ -86,14 +93,14 @@ CREATE TABLE `kontrak` (
 -- Dumping data for table `kontrak`
 --
 
-INSERT INTO `kontrak` (`id_kontrak`, `id_unit`, `nama_pekerjaan`, `tahun_kontrak`, `tgl_mulai_kontrak`, `tgl_selesai_kontrak`, `no_kl`, `nilai`, `id_lokasi`) VALUES
-(3, 1, 'Renovasi Mess Babaranjang ', 2017, '2017-04-08', '2017-05-25', '20/34/DV', 200000000, 3),
-(4, 1, 'Perbaikan Mushola Tarahan', 2017, '2017-06-05', '2017-07-06', '20/2017/VI', 200000000, 2),
-(5, 1, 'Perbaikan Mushola Blambangan Umpu', 2017, '2017-07-07', '2017-09-09', '20/2017/V', 500000000, 3),
-(6, 3, 'Renovasi Gedung Resort JJ Air Kaka (AK)', 2017, '2017-06-06', '2017-08-08', '20/2017/VI/V', 3000000, 4),
-(7, 2, 'Renovasi Wisma Tulungbuyut', 2017, '2018-02-08', '2018-04-08', '24/34/DV/V/XX', 300000000, 6),
-(8, 3, 'Renovasi Mess Divre IV TanjungKarang', 2017, '2018-06-06', '2018-07-08', '20/2018/VI/VI/IX', 500000000, 3),
-(9, 2, 'Renovasi masjid tulung buyut', 2017, '2017-08-08', '2017-10-09', '20/2017/VI', 700000000, 6);
+INSERT INTO `kontrak` (`id_kontrak`, `id_unit`, `nama_pekerjaan`, `tgl_mulai_kontrak`, `tgl_selesai_kontrak`, `no_kl`, `nilai`, `id_lokasi`) VALUES
+(3, 1, 'Renovasi Mess Babaranjang ', '2017-04-08', '2017-05-25', '20/34/DV', 200000000, 3),
+(4, 1, 'Perbaikan Mushola Tarahan', '2017-06-05', '2017-07-06', '20/2017/VI', 200000000, 2),
+(5, 1, 'Perbaikan Mushola Blambangan Umpu', '2017-07-07', '2017-09-09', '20/2017/V', 500000000, 3),
+(6, 3, 'Renovasi Gedung Resort JJ Air Kaka (AK)', '2017-06-06', '2017-08-08', '20/2017/VI/V', 3000000, 4),
+(7, 2, 'Renovasi Wisma Tulungbuyut', '2018-02-08', '2018-04-08', '24/34/DV/V/XX', 300000000, 6),
+(8, 3, 'Renovasi Mess Divre IV TanjungKarang', '2018-06-06', '2018-07-08', '20/2018/VI/VI/IX', 500000000, 3),
+(9, 2, 'Renovasi masjid tulung buyut', '2017-08-08', '2017-10-09', '20/2017/VI', 700000000, 6);
 
 -- --------------------------------------------------------
 
@@ -147,15 +154,17 @@ CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(128) NOT NULL,
-  `nama` varchar(50) NOT NULL
+  `nama` varchar(50) NOT NULL,
+  `level` enum('a','p') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `nama`) VALUES
-(1, 'admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec', 'Administrator');
+INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `level`) VALUES
+(1, 'admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec', 'Administrator', 'a'),
+(2, 'user', 'b14361404c078ffd549c03db443c3fede2f3e534d73f78f77301ed97d4a436a9fd9db05ee8b325c0ad36438b43fec8510c204fc1c1edb21d0941c00e9e2c1ce2', 'User', 'p');
 
 --
 -- Indexes for dumped tables
@@ -209,25 +218,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cv_pt`
 --
 ALTER TABLE `cv_pt`
-  MODIFY `id_cv_pt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_cv_pt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `detail_kontrak`
 --
 ALTER TABLE `detail_kontrak`
-  MODIFY `id_detail_kontrak` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail_kontrak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `kontrak`
 --
 ALTER TABLE `kontrak`
-  MODIFY `id_kontrak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_kontrak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `lokasi`
 --
 ALTER TABLE `lokasi`
-  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `unit`
@@ -239,7 +248,7 @@ ALTER TABLE `unit`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
