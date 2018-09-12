@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Arsip Kontrak Kerja_UB</title>
+  <title><?php echo JUDUL; ?></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->  
@@ -35,7 +35,7 @@
         <span class="login100-form-title p-b-41">
         <img style="display: block; margin: 0 auto; text-align: center; width: 150px; height: 110px;"
         src="<?php echo base_url(); ?>assets/login/images/logokai.png">
-          Arsip Unit Bangunan
+          <?php echo JUDUL; ?>
         </span>
         <form method="post" action="<?php echo base_url('welcome/login'); ?>">
 

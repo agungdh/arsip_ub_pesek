@@ -25,12 +25,7 @@ function getChartJs(type) {
                     datasets: [
                           {
                                 label: "Kontrak",
-                                fillColor: "rgba(220,220,220,0.2)",
-                                strokeColor: "rgba(220,220,220,1)",
-                                pointColor: "rgba(220,220,220,1)",
-                                pointStrokeColor: "#fff",
-                                pointHighlightFill: "#fff",
-                                pointHighlightStroke: "rgba(220,220,220,1)",
+                                backgroundColor: '#9711EC',
                                 data: [
                                 <?php
                                 for ($i=0; $i <= 6; $i++) {
