@@ -70,6 +70,7 @@ class Kontrak extends CI_Controller {
 	}
 
 	function aksi_hapus($id) {
+		$this->db->delete('detail_kontrak', ['id_kontrak' => $id]);
 		$this->db->delete('kontrak', ['id_kontrak' => $id]);
 
 		redirect(base_url('kontrak'));

@@ -105,7 +105,7 @@
                             <tr>
                               <td><?php echo $this->db->get_where('cv_pt', ['id_cv_pt' => $item->id_cv_pt])->row()->nama_perusahaan; ?></td>
                               <td><?php echo $item->status_kontrak == 'pm' ? 'Pemenang' : 'Pendamping'; ?></td>
-                              <td><a href=""><?php echo $item->nama_berkas; ?></a></td>
+                              <td><a href="<?php echo base_url('detail_kontrak/download/' . $item->id_detail_kontrak); ?>"><?php echo $item->nama_berkas; ?></a></td>
                                 <td style="text-align: center;">
                                   <a href="<?php echo base_url('detail_kontrak/ubah/' . $item->id_detail_kontrak); ?>">
                                     <button type="button" class="btn bg-blue waves-effect" data-toggle="tooltip" data-placement="top" title="Ubah">

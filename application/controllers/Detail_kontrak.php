@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use Apfelbox\FileDownload\FileDownload;
+
 class Detail_kontrak extends CI_Controller {
 	function __construct(){
 		parent::__construct();
@@ -90,6 +92,13 @@ class Detail_kontrak extends CI_Controller {
 		$this->db->delete('detail_kontrak', ['id_detail_kontrak' => $id]);
 
 		redirect(base_url('detail_kontrak/index/' . $id_kontrak));
+	}
+
+	function download($id) {
+		$detail_kontrak = $this->db->get_where('detail_kontrak', ['id_detail_kontrak' => $id])->row();
+
+		$fileDownload = FileDownload::createFromFilePath('uploads/berkas/' . $detail_kontrak->id_detail_kontrak);
+		$fileDownload->sendDownload($detail_kontrak->nama_berkas);
 	}
 
 }
