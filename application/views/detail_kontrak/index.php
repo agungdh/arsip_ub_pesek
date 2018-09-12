@@ -81,13 +81,19 @@
                 </h2>
             </div>
             <div class="body">
-                <div class="button-demo">
-                  <a href="<?php echo base_url('detail_kontrak/tambah/' . $data['kontrak']->id_kontrak); ?>">
-                    <button type="button" class="btn bg-blue waves-effect">
-                      <i class="material-icons">add</i>Tambah Detail Kontrak
-                    </button>
-                  </a>
-                </div>
+                <?php
+                if ($this->session->level == 'a') {
+                  ?>
+                  <div class="button-demo">
+                    <a href="<?php echo base_url('detail_kontrak/tambah/' . $data['kontrak']->id_kontrak); ?>">
+                      <button type="button" class="btn bg-blue waves-effect">
+                        <i class="material-icons">add</i>Tambah Detail Kontrak
+                      </button>
+                    </a>
+                  </div>
+                  <?php
+                } 
+                ?>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                         <thead>
@@ -95,7 +101,13 @@
                                 <th style="text-align: center;">Nama Perusahaan</th>
                                 <th style="text-align: center;">Status</th>
                                 <th style="text-align: center;">Berkas</th>
-                                <th style="text-align: center;">Proses</th>
+                                <?php
+                                if ($this->session->level == 'a') {
+                                  ?>
+                                  <th style="text-align: center;">Proses</th>
+                                  <?php
+                                }
+                                ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -106,6 +118,9 @@
                               <td><?php echo $this->db->get_where('cv_pt', ['id_cv_pt' => $item->id_cv_pt])->row()->nama_perusahaan; ?></td>
                               <td><?php echo $item->status_kontrak == 'pm' ? 'Pemenang' : 'Pendamping'; ?></td>
                               <td><a href="<?php echo base_url('detail_kontrak/download/' . $item->id_detail_kontrak); ?>"><?php echo $item->nama_berkas; ?></a></td>
+                                <?php
+                                if ($this->session->level == 'a') {
+                                  ?>
                                 <td style="text-align: center;">
                                   <a href="<?php echo base_url('detail_kontrak/ubah/' . $item->id_detail_kontrak); ?>">
                                     <button type="button" class="btn bg-blue waves-effect" data-toggle="tooltip" data-placement="top" title="Ubah">
@@ -118,6 +133,9 @@
                                     </button>
                                   </a>
                                 </td>
+                                <?php
+                                }
+                                ?>
                             </tr>
                             <?php
                           }

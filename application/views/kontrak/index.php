@@ -7,13 +7,19 @@
                 </h2>
             </div>
             <div class="body">
-                <div class="button-demo">
-                  <a href="<?php echo base_url('kontrak/tambah'); ?>">
-                    <button type="button" class="btn bg-blue waves-effect">
-                      <i class="material-icons">add</i>Tambah Kontrak
-                    </button>
-                  </a>
-                </div>
+                <?php
+                if ($this->session->level == 'a') {
+                  ?>
+                  <div class="button-demo">
+                    <a href="<?php echo base_url('kontrak/tambah'); ?>">
+                      <button type="button" class="btn bg-blue waves-effect">
+                        <i class="material-icons">add</i>Tambah Kontrak
+                      </button>
+                    </a>
+                  </div>
+                  <?php
+                }
+                ?>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                         <thead>
@@ -46,16 +52,22 @@
                                       <i class="material-icons">more</i>
                                     </button>
                                   </a>
-                                  <a href="<?php echo base_url('kontrak/ubah/' . $item->id_kontrak); ?>">
-                                    <button type="button" class="btn bg-blue waves-effect" data-toggle="tooltip" data-placement="top" title="Ubah">
-                                      <i class="material-icons">edit</i>
-                                    </button>
-                                  </a>
-                                  <a href="javascript:void(0)">
-                                    <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_kontrak; ?>')" data-toggle="tooltip" data-placement="top" title="Hapus">
-                                      <i class="material-icons">delete</i>
-                                    </button>
-                                  </a>
+                                  <?php
+                                  if ($this->session->level == 'a') {
+                                    ?>
+                                    <a href="<?php echo base_url('kontrak/ubah/' . $item->id_kontrak); ?>">
+                                      <button type="button" class="btn bg-blue waves-effect" data-toggle="tooltip" data-placement="top" title="Ubah">
+                                        <i class="material-icons">edit</i>
+                                      </button>
+                                    </a>
+                                    <a href="javascript:void(0)">
+                                      <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_kontrak; ?>')" data-toggle="tooltip" data-placement="top" title="Hapus">
+                                        <i class="material-icons">delete</i>
+                                      </button>
+                                    </a>
+                                    <?php
+                                  }
+                                  ?>
                                 </td>
                             </tr>
                             <?php

@@ -5,9 +5,7 @@ class User extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		if ($this->session->login != true) {
-			redirect(base_url());
-		}
+		$this->pustaka->auth($this->session->level, ['a']);
 	}
 
 	function index() {
@@ -41,10 +39,6 @@ class User extends CI_Controller {
 			}
 		}
 
-		if ($data['level'] != 'kb') {
-			$data['id_bidang'] = null;
-		}
-
 		$this->db->insert('user', $data);
 
 		redirect(base_url('user'));
@@ -57,10 +51,6 @@ class User extends CI_Controller {
 
 		foreach ($this->input->post('where') as $key => $value) {
 			$where[$key] = $value;
-		}
-
-		if ($data['level'] != 'kb') {
-			$data['id_bidang'] = null;
 		}
 
 		$this->db->update('user', $data, $where);

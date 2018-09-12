@@ -5,34 +5,40 @@
     </a>
 </li>
 
-<li>
-    <a href="javascript:void(0);" class="menu-toggle">
-        <i class="material-icons">swap_calls</i>
-        <span>Data Master</span>
-    </a>
-    <ul class="ml-menu">
-        <li>
-            <a href="<?php echo base_url('user'); ?>">
-                User
-            </a>
-        </li>
-        <li>
-            <a href="<?php echo base_url('unit'); ?>">
-                Unit
-            </a>
-        </li>
-        <li>
-            <a href="<?php echo base_url('lokasi'); ?>">
-                Lokasi
-            </a>
-        </li>
-        <li>
-            <a href="<?php echo base_url('cv_pt'); ?>">
-                CV/PT
-            </a>
-        </li>
-    </ul>
-</li>
+<?php
+if ($this->session->level == 'a') {
+    ?>
+    <li>
+        <a href="javascript:void(0);" class="menu-toggle">
+            <i class="material-icons">swap_calls</i>
+            <span>Data Master</span>
+        </a>
+        <ul class="ml-menu">
+            <li>
+                <a href="<?php echo base_url('user'); ?>">
+                    User
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo base_url('unit'); ?>">
+                    Unit
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo base_url('lokasi'); ?>">
+                    Lokasi
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo base_url('cv_pt'); ?>">
+                    CV/PT
+                </a>
+            </li>
+        </ul>
+    </li>
+    <?php
+}
+?>
 
 <li>
     <a href="<?php echo base_url('kontrak'); ?>">

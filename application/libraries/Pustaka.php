@@ -2,10 +2,10 @@
 
 class Pustaka {
 
-	function auth($user_id, $accept)
+	function auth($level, $accept)
 	{
-		if (!in_array($user_id, $accept)) {
-			redirect(base_url('logout'));
+		if (!in_array($level, $accept)) {
+			redirect(base_url());
 		}
 	}
 

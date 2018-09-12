@@ -7,8 +7,11 @@ class Welcome extends CI_Controller {
 	}
 
 	function index() {
-		// $this->load->view('main');
-    redirect(base_url('dashboard'));
+		if ($this->session->login != true) {
+			redirect(base_url('login'));
+		} else {
+			redirect(base_url('dashboard'));
+		}
 	}
 
 	function login() {
@@ -20,13 +23,12 @@ class Welcome extends CI_Controller {
 				'nama'  => $data_user->nama,
 				'username'  => $data_user->username,
 				'level'  => $data_user->level,
-				'id_bidang'  => $data_user->id_bidang,
 				'login'  => true
 			);
 
 			$this->session->set_userdata($array_data_user);
 
-			echo json_encode(['login' => true]);
+			redirect(base_url());
 		} else {
 			$data['header'] = "ERROR !!!";
 			$data['pesan'] = "Password Salah !!!";
@@ -34,7 +36,9 @@ class Welcome extends CI_Controller {
 
 			$data['login'] = false;
 
-			echo json_encode($data);
+			$this->session->flashdata('flash', $data);
+
+			redirect(base_url());
 		}
 	}
 
