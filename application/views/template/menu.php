@@ -23,7 +23,7 @@
     </a>
 </li>
 <li>
-    <a href="<?php echo base_url('cvpt'); ?>">
+    <a href="<?php echo base_url('cv_pt'); ?>">
         <i class="material-icons">layers</i>
         <span>CV/PT</span>
     </a>
