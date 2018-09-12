@@ -10,7 +10,7 @@ $now = date('YmdHis')
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title><?php echo JUDUL ?></title>
     <!-- Favicon-->
-    <link rel="icon" href="<?php echo base_url('assets'); ?>/favicon.ico?time=<?php echo $now ?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo base_url('assets'); ?>/login/images/logokai.png?time=<?php echo $now ?>" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">

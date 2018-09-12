@@ -1,8 +1,4 @@
-<img style="display: block; margin: 0 auto; text-align: center; width: 150px; height: 110px;" src="http://localhost/php56/arsip_ub/asset/login/images/logokai.png">
-<!-- <font face="Verdana"><center><p><h1>Selamat Datang</h1></p></center>
-<center><p><h1>Di</h1></p></center>
-<center><p><h1>Aplikasi Pengarsipan Kontrak Kerja</h1></p></center>
-<center><p><h1></p>Unit Bangunan</h1></p></center></font> -->
+<img style="display: block; margin: 0 auto; text-align: center; width: 150px; height: 110px;" src="<?php echo base_url('assets'); ?>/login/images/logokai.png">
 <h1>
 	<p style="text-align: center;">
 		Selamat Datang Di
