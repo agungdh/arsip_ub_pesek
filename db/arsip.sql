@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 12, 2018 at 04:15 PM
+-- Generation Time: Sep 12, 2018 at 08:49 PM
 -- Server version: 10.1.34-MariaDB-0ubuntu0.18.04.1
 -- PHP Version: 7.2.7
 
@@ -70,7 +70,8 @@ CREATE TABLE `detail_kontrak` (
 
 INSERT INTO `detail_kontrak` (`id_detail_kontrak`, `id_cv_pt`, `id_kontrak`, `status_kontrak`, `nama_berkas`) VALUES
 (5, 8, 4, 'pm', 'db_buntang.txt'),
-(6, 1, 4, 'pn', 'klui.xlsx');
+(6, 1, 4, 'pn', 'klui.xlsx'),
+(9, 8, 4, 'pm', 'README.md');
 
 -- --------------------------------------------------------
 
@@ -94,13 +95,14 @@ CREATE TABLE `kontrak` (
 --
 
 INSERT INTO `kontrak` (`id_kontrak`, `id_unit`, `nama_pekerjaan`, `tgl_mulai_kontrak`, `tgl_selesai_kontrak`, `no_kl`, `nilai`, `id_lokasi`) VALUES
-(3, 1, 'Renovasi Mess Babaranjang ', '2017-04-08', '2017-05-25', '20/34/DV', 200000000, 3),
-(4, 1, 'Perbaikan Mushola Tarahan', '2017-06-05', '2017-07-06', '20/2017/VI', 200000000, 2),
-(5, 1, 'Perbaikan Mushola Blambangan Umpu', '2017-07-07', '2017-09-09', '20/2017/V', 500000000, 3),
-(6, 3, 'Renovasi Gedung Resort JJ Air Kaka (AK)', '2017-06-06', '2017-08-08', '20/2017/VI/V', 3000000, 4),
+(3, 1, 'Renovasi Mess Babaranjang ', '2018-04-08', '2018-05-25', '20/34/DV', 200000000, 3),
+(4, 1, 'Perbaikan Mushola Tarahan', '2018-06-05', '2018-07-06', '20/2017/VI', 200000000, 2),
+(5, 1, 'Perbaikan Mushola Blambangan Umpu', '2018-07-07', '2018-09-09', '20/2017/V', 500000000, 3),
+(6, 3, 'Renovasi Gedung Resort JJ Air Kaka (AK)', '2018-06-06', '2018-08-08', '20/2017/VI/V', 3000000, 4),
 (7, 2, 'Renovasi Wisma Tulungbuyut', '2018-02-08', '2018-04-08', '24/34/DV/V/XX', 300000000, 6),
 (8, 3, 'Renovasi Mess Divre IV TanjungKarang', '2018-06-06', '2018-07-08', '20/2018/VI/VI/IX', 500000000, 3),
-(9, 2, 'Renovasi masjid tulung buyut', '2017-08-08', '2017-10-09', '20/2017/VI', 700000000, 6);
+(9, 2, 'Renovasi masjid tulung buyut', '2018-08-08', '2018-10-09', '20/2017/VI', 700000000, 6),
+(12, 2, 'test', '2018-09-15', '2018-09-29', 'A3/ASF/2018', 20000, 4);
 
 -- --------------------------------------------------------
 
@@ -224,13 +226,13 @@ ALTER TABLE `cv_pt`
 -- AUTO_INCREMENT for table `detail_kontrak`
 --
 ALTER TABLE `detail_kontrak`
-  MODIFY `id_detail_kontrak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_detail_kontrak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `kontrak`
 --
 ALTER TABLE `kontrak`
-  MODIFY `id_kontrak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_kontrak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `lokasi`
@@ -242,13 +244,13 @@ ALTER TABLE `lokasi`
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_unit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
