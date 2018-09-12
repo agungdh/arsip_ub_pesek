@@ -75,13 +75,17 @@ class Detail_kontrak extends CI_Controller {
 			}
 		}
 
-		$data['nama_berkas'] = $_FILES['berkas']['name'];
+		if ($_FILES['berkas']['size'] > 0) {
+			$data['nama_berkas'] = $_FILES['berkas']['name'];
+		}
 
 		$id_kontrak = $this->db->get_where('detail_kontrak', ['id_detail_kontrak' => $where['id_detail_kontrak']])->row()->id_kontrak;
 
 		$this->db->update('detail_kontrak', $data, $where);
 
-		move_uploaded_file($_FILES['berkas']['tmp_name'], 'uploads/berkas/' . $where['id_detail_kontrak']);
+		if ($_FILES['berkas']['size'] > 0) {
+			move_uploaded_file($_FILES['berkas']['tmp_name'], 'uploads/berkas/' . $where['id_detail_kontrak']);
+		}
 
 		redirect(base_url('detail_kontrak/index/' . $id_kontrak));
 	}
