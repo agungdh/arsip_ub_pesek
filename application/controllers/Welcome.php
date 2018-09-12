@@ -31,14 +31,16 @@ class Welcome extends CI_Controller {
 			redirect(base_url());
 		} else {
 			$data['header'] = "ERROR !!!";
-			$data['pesan'] = "Password Salah !!!";
+			$data['pesan'] = "Username / Password Salah !!!";
 			$data['status'] = "error";
+			
+			$data['username'] = $this->input->post('username');
 
 			$data['login'] = false;
 
-			$this->session->flashdata('flash', $data);
+			$this->session->set_flashdata('flash', $data);
 
-			redirect(base_url());
+			redirect(base_url('login'));
 		}
 	}
 

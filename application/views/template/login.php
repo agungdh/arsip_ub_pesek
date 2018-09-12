@@ -1,3 +1,7 @@
+<?php
+$flash = $this->session->flashdata('flash');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +30,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login/css/util.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/login/css/main.css">
 <!--===============================================================================================-->
+<link href="<?php echo base_url('assets'); ?>/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
 </head>
 <body>
   
@@ -44,12 +49,12 @@
     
       <center>Silahkan Login untuk Menggunakan</center>
           <div class="wrap-input100 validate-input" data-validate = "Enter username">
-            <input class="input100" type="text" name="username" placeholder="Username">
+            <input class="input100" type="text" name="username" placeholder="Username" required value="<?php echo $flash != null ? $flash['username'] : null; ?>">
             <span class="focus-input100" data-placeholder="&#xe82a;"></span>
           </div>
 
           <div class="wrap-input100 validate-input" data-validate="Enter password">
-            <input class="input100" type="password" name="password" placeholder="Password">
+            <input class="input100" type="password" name="password" placeholder="Password" required>
             <span class="focus-input100" data-placeholder="&#xe80f;"></span>
           </div>
 
@@ -83,6 +88,18 @@
   <script src="<?php echo base_url(); ?>assets/login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
   <script src="<?php echo base_url(); ?>assets/login/js/main.js"></script>
+
+  <script src="<?php echo base_url('assets'); ?>/plugins/sweetalert/sweetalert.min.js"></script>
+
+  <script type="text/javascript">
+    <?php    
+    if ($flash != null) {
+      ?>
+      swal('<?php echo $flash["header"]; ?>', '<?php echo $flash["pesan"]; ?>', '<?php echo $flash["status"]; ?>');
+      <?php
+    }
+    ?>
+  </script>
 
 </body>
 </html>
