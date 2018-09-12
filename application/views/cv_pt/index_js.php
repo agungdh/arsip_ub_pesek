@@ -14,7 +14,7 @@ function hapus(id) {
         confirmButtonText: 'Hapus!'
     }, function(result) {
         if (result) {
-            window.location = "<?php echo base_url('lokasi/aksi_hapus/'); ?>" + id;
+            window.location = "<?php echo base_url('cv_pt/aksi_hapus/'); ?>" + id;
         }
     });
 };
