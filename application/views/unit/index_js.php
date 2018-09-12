@@ -12,8 +12,8 @@ function hapus(id) {
         type: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Hapus!'
-    }).then(function(result) {
-        if (result.value) {
+    }, function(result) {
+        if (result) {
             window.location = "<?php echo base_url('unit/aksi_hapus/'); ?>" + id;
         }
     });

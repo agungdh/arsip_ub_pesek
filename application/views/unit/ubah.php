@@ -1,24 +1,25 @@
-<div class="row">
-  <div class="col-md-12">
-    <div class="tile">
-      <h3 class="tile-title">Ubah Bidang</h3>
-      <div class="tile-body">
-        <form method="post" action="<?php echo base_url('bidang/aksi_ubah'); ?>" enctype=multipart/form-data>
+<div class="row clearfix">
+    <div class="card">
+        <div class="header">
+            <h2>
+                TAMBAH UNIT
+            </h2>
+        </div>
+        <div class="body">
+            <form method="post" action="<?php echo base_url('unit/aksi_ubah'); ?>">
 
-          <input type="hidden" name="where[id_bidang]" value="<?php echo $data['bidang']->id_bidang; ?>">
+                <input type="hidden" name="where[id_unit]" value="<?php echo $data['unit']->id_unit; ?>">
 
-          <div class="form-group">
-            <label class="control-label">Bidang</label>
-            <input class="form-control" type="text" required placeholder="Masukan Bidang" name="data[bidang]" value="<?php echo $data['bidang']->bidang; ?>">
-          </div>
-
-          </div>
-          <div class="tile-footer">
-            <button id="simpan" class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Simpan</button>
-            &nbsp;&nbsp;&nbsp;
-            <a class="btn btn-secondary" href="<?php echo base_url('bidang'); ?>"><i class="fa fa-fw fa-lg fa-times-circle"></i>Batal</a> <input type="submit" style="visibility: hidden;">
-          </div>
-        </form>
+                <label for="nama_unit">Nama Unit</label>
+                <div class="form-group">
+                    <div class="form-line">
+                        <input placeholder="Masukkan Nama Unit" type="text" name="data[nama_unit]" id="nama_unit" class="form-control" required value="<?php echo $data['unit']->nama_unit; ?>">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-success waves-effect">SIMPAN</button>
+                <a href="<?php echo base_url('unit'); ?>" class="btn btn-primary waves-effect">BATAL</a>
+            </form>
+        </div>
     </div>
-  </div>
 </div>

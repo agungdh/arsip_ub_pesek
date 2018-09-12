@@ -29,7 +29,7 @@
                             <tr>
                               <td><?php echo $item->nama_unit; ?></td>
                                 <td style="text-align: center;">
-                                  <a href="<?php echo base_url('unit/edit/' . $item->id_unit); ?>">
+                                  <a href="<?php echo base_url('unit/ubah/' . $item->id_unit); ?>">
                                     <button type="button" class="btn bg-blue waves-effect">
                                       <i class="material-icons">edit</i>
                                     </button>
