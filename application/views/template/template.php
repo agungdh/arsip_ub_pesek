@@ -116,7 +116,7 @@ $now = date('YmdHis')
     <section class="content">
         <div class="container-fluid">
             <ol class="breadcrumb align-right">
-                <?php $this->load->view($nav); ?>
+                <?php isset($data) ?  $this->load->view($nav,$data) : $this->load->view($nav); ?>
             </ol>             
             <br>
             <?php isset($data) ?  $this->load->view($isi,$data) : $this->load->view($isi); ?>
