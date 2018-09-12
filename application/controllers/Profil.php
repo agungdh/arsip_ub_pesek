@@ -10,7 +10,7 @@ class Profil extends CI_Controller {
 
 	function index() {
 		$data['isi'] = 'profil/index';
-		$data['js'] = 'profil/index_js';
+		$data['nav'] = 'profil/nav';
 		$data['data']['user'] = $this->db->get_where('user', ['id_user' => $this->session->id_user])->row();
 
 		$this->load->view('template/template', $data);
@@ -29,7 +29,16 @@ class Profil extends CI_Controller {
 		}
 
 		foreach ($this->input->post('data') as $key => $value) {
-			$data[$key] = $value;
+			switch ($key) {
+				case 'password':
+					if ($value != '') {
+						$data[$key] = hash('sha512', $value);
+					}
+					break;
+				default:
+					$data[$key] = $value;
+					break;
+			}
 		}
 
 		foreach ($this->input->post('where') as $key => $value) {
@@ -39,22 +48,9 @@ class Profil extends CI_Controller {
 		$this->db->update('user', $data, $where);
 
 		$this->session->set_userdata('nama', $data['nama']);
+		$this->session->set_userdata('username', $data['username']);
 
-		redirect(base_url());
-	}
-
-	function aksi_ubah_password() {
-		foreach ($this->input->post('data') as $key => $value) {
-			$data[$key] = hash('sha512', $value);
-		}
-
-		foreach ($this->input->post('where') as $key => $value) {
-			$where[$key] = $value;
-		}
-
-		$this->db->update('user', $data, $where);
-
-		redirect(base_url());
+		redirect(base_url('user'));
 	}
 
 }

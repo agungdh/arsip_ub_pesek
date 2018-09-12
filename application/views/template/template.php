@@ -78,7 +78,14 @@ $now = date('YmdHis')
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="<?php echo base_url('assets'); ?>/images/user.png" width="48" height="48" alt="User" />
+                    <?php
+                    if (file_exists('uploads/userimage/' . $this->session->id_user)) {
+                        $pp = base_url() . '/uploads/userimage/' . $this->session->id_user;
+                    } else {
+                        $pp = base_url('assets') . '/images/user.png';
+                    }
+                    ?>
+                    <img src="<?php echo $pp; ?>" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->nama != null ? $this->session->nama : 'Dian Susanti'; ?></div>

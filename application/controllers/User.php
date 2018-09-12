@@ -10,6 +10,7 @@ class User extends CI_Controller {
 
 	function index() {
 		$data['isi'] = 'user/index';
+		$data['nav'] = 'user/nav';
 		$data['js'] = 'user/index_js';
 
 		$this->load->view('template/template', $data);
@@ -17,14 +18,14 @@ class User extends CI_Controller {
 
 	function tambah() {
 		$data['isi'] = 'user/tambah';
-		$data['js'] = 'user/tambah_js';
+		$data['nav'] = 'user/nav';
 
 		$this->load->view('template/template', $data);
 	}
 
 	function ubah($id) {
 		$data['isi'] = 'user/ubah';
-		$data['js'] = 'user/ubah_js';
+		$data['nav'] = 'user/nav';
 		$data['data']['user'] = $this->db->get_where('user', ['id_user' => $id])->row();
 
 		$this->load->view('template/template', $data);
@@ -33,6 +34,9 @@ class User extends CI_Controller {
 	function aksi_tambah() {
 		foreach ($this->input->post('data') as $key => $value) {
 			switch ($key) {
+				case 'password':
+					$data[$key] = hash('sha512', $value);
+					break;
 				default:
 					$data[$key] = $value;
 					break;
@@ -46,7 +50,16 @@ class User extends CI_Controller {
 
 	function aksi_ubah() {
 		foreach ($this->input->post('data') as $key => $value) {
-			$data[$key] = $value;
+			switch ($key) {
+				case 'password':
+					if ($value != '') {
+						$data[$key] = hash('sha512', $value);
+					}
+					break;
+				default:
+					$data[$key] = $value;
+					break;
+			}
 		}
 
 		foreach ($this->input->post('where') as $key => $value) {

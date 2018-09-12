@@ -3,14 +3,14 @@
         <div class="card">
             <div class="header">
                 <h2>
-                    DATA LOKASI
+                    DATA USER
                 </h2>
             </div>
             <div class="body">
                 <div class="button-demo">
-                  <a href="<?php echo base_url('lokasi/tambah'); ?>">
+                  <a href="<?php echo base_url('user/tambah'); ?>">
                     <button type="button" class="btn bg-blue waves-effect">
-                      <i class="material-icons">add</i>Tambah Lokasi
+                      <i class="material-icons">add</i>Tambah User
                     </button>
                   </a>
                 </div>
@@ -18,24 +18,37 @@
                     <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                         <thead>
                             <tr>
-                                <th style="text-align: center;">Nama Lokasi</th>
+                                <th style="text-align: center;">Nama</th>
+                                <th style="text-align: center;">Username</th>
+                                <th style="text-align: center;">Level</th>
                                 <th style="text-align: center;">Proses</th>
                             </tr>
                         </thead>
                         <tbody>
                           <?php
-                          foreach ($this->db->get('lokasi')->result() as $item) {
+                          foreach ($this->db->get('user')->result() as $item) {
                             ?>
                             <tr>
-                              <td><?php echo $item->nama_lokasi; ?></td>
+                              <td><?php echo $item->nama; ?></td>
+                              <td><?php echo $item->username; ?></td>
+                              <?php
+                              if ($item->level == 'a') {
+                                $level = 'Admin';
+                              } elseif ($item->level == 'p') {
+                                $level = 'Pengguna';
+                              } else {
+                                redirect(base_url());
+                              }
+                              ?>
+                              <td><?php echo $level; ?></td>
                                 <td style="text-align: center;">
-                                  <a href="<?php echo base_url('lokasi/ubah/' . $item->id_lokasi); ?>">
+                                  <a href="<?php echo base_url('user/ubah/' . $item->id_user); ?>">
                                     <button type="button" class="btn bg-blue waves-effect" data-toggle="tooltip" data-placement="top" title="Ubah">
                                       <i class="material-icons">edit</i>
                                     </button>
                                   </a>
                                   <a href="javascript:void(0)">
-                                    <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_lokasi; ?>')" data-toggle="tooltip" data-placement="top" title="Hapus">
+                                    <button type="button" class="btn bg-red waves-effect" onclick="hapus('<?php echo $item->id_user; ?>')" data-toggle="tooltip" data-placement="top" title="Hapus">
                                       <i class="material-icons">delete</i>
                                     </button>
                                   </a>
