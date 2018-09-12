@@ -82,7 +82,7 @@
             </div>
             <div class="body">
                 <div class="button-demo">
-                  <a href="<?php echo base_url('lokasi/tambah'); ?>">
+                  <a href="<?php echo base_url('detail_kontrak/tambah/' . $data['kontrak']->id_kontrak); ?>">
                     <button type="button" class="btn bg-blue waves-effect">
                       <i class="material-icons">add</i>Tambah Detail Kontrak
                     </button>
@@ -107,7 +107,7 @@
                               <td><?php echo $item->status_kontrak == 'pm' ? 'Pemenang' : 'Pendamping'; ?></td>
                               <td><a href=""><?php echo $item->nama_berkas; ?></a></td>
                                 <td style="text-align: center;">
-                                  <a href="<?php echo base_url('lokasi/ubah/' . $item->id_lokasi); ?>">
+                                  <a href="<?php echo base_url('detail_kontrak/ubah/' . $item->id_lokasi); ?>">
                                     <button type="button" class="btn bg-blue waves-effect" data-toggle="tooltip" data-placement="top" title="Ubah">
                                       <i class="material-icons">edit</i>
                                     </button>

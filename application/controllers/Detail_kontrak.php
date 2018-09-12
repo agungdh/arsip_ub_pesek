@@ -19,9 +19,10 @@ class Detail_kontrak extends CI_Controller {
 		$this->load->view('template/template', $data);
 	}
 
-	function tambah() {
+	function tambah($id_kontrak) {
 		$data['isi'] = 'detail_kontrak/tambah';
 		$data['nav'] = 'detail_kontrak/nav';
+		$data['data']['kontrak'] = $this->db->get_where('kontrak', ['id_kontrak' => $id_kontrak])->row();
 
 		$this->load->view('template/template', $data);
 	}
@@ -44,6 +45,10 @@ class Detail_kontrak extends CI_Controller {
 		}
 
 		$this->db->insert('detail_kontrak', $data);
+
+		$insert_id = $this->db->insert_id();
+
+		
 
 		redirect(base_url('detail_kontrak'));
 	}
