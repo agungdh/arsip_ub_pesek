@@ -12,6 +12,7 @@ class Dashboard extends CI_Controller {
 
 	function index() {
 		$data['isi'] = "dashboard/index";
+		$data['nav'] = "dashboard/nav";
 		$data['js'] = "dashboard/index_js";
 		
 		$this->load->view("template/template", $data);

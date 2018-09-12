@@ -116,7 +116,15 @@ $now = date('YmdHis')
     <section class="content">
         <div class="container-fluid">
             <ol class="breadcrumb align-right">
-                <?php isset($data) ?  $this->load->view($nav,$data) : $this->load->view($nav); ?>
+                <?php
+                if (isset($nav)) {
+                    if (isset($data)) {
+                        $this->load->view($nav,$data);
+                    } else {
+                        $this->load->view($nav);
+                    }
+                }
+                ?>
             </ol>             
             <br>
             <?php isset($data) ?  $this->load->view($isi,$data) : $this->load->view($isi); ?>
@@ -149,6 +157,7 @@ $now = date('YmdHis')
     <script src="<?php echo base_url('assets'); ?>/plugins/momentjs/moment.js"></script>
     <script src="<?php echo base_url('assets'); ?>/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
     <script src="<?php echo base_url('assets'); ?>/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/plugins/chartjs/Chart.bundle.js"></script>
 
     <!-- View Js -->
     <?php isset($js) ?  $this->load->view($js) : null; ?>
