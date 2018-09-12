@@ -75,8 +75,8 @@ $now = date('YmdHis')
                     <img src="<?php echo base_url('assets'); ?>/images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email">john.doe@example.com</div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->nama != null ? $this->session->nama : 'John Doe'; ?></div>
+                    <div class="email"><?php echo $this->session->username != null ? $this->session->username : 'johndoe'; ?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -99,7 +99,7 @@ $now = date('YmdHis')
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2018 <a href="https://github.com/agungdh/airnote">AIRnote</a>.
+                    &copy; <?php echo date('Y'); ?> <a href="<?php echo base_url(); ?>"><?php echo JUDUL; ?></a>.
                 </div>
             </div>
             <!-- #Footer -->
