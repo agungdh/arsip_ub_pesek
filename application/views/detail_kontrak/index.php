@@ -58,7 +58,6 @@
                               <td><?php echo $this->pustaka->tanggal_indo($item->tgl_selesai_kontrak); ?></td>
                               <td><?php echo $item->no_kl; ?></td>
                               <td><?php echo $item->nama_perusahaan; ?></td>
-                              <td><?php echo $this->db->get_where('cv_pt', ['id_cv_pt' => $item->id_cv_pt])->row()->nama_perusahaan; ?></td>
                               <td><?php echo $item->status_kontrak == 'pm' ? 'Pemenang' : 'Pendamping'; ?></td>
                               <td><a href="<?php echo base_url('detail_kontrak/download/' . $item->id_detail_kontrak); ?>"><?php echo $item->nama_berkas; ?></a></td>
                                 <?php
