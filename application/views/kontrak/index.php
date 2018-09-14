@@ -47,11 +47,6 @@
                               <td><?php echo $item->no_kl; ?></td>
                               <td><?php echo $this->pustaka->rupiah($item->nilai); ?></td>
                                 <td style="text-align: center;">
-                                  <a href="<?php echo base_url('detail_kontrak/index/' . $item->id_kontrak); ?>">
-                                    <button type="button" class="btn bg-cyan waves-effect" data-toggle="tooltip" data-placement="top" title="Detail Kontrak">
-                                      <i class="material-icons">more</i>
-                                    </button>
-                                  </a>
                                   <?php
                                   if ($this->session->level == 'a') {
                                     ?>

@@ -46,3 +46,10 @@ if ($this->session->level == 'a') {
         <span>Data Kontrak</span>
     </a>
 </li>
+
+<li>
+    <a href="<?php echo base_url('detail_kontrak'); ?>">
+        <i class="material-icons">layers</i>
+        <span>Data Detail Kontrak</span>
+    </a>
+</li>
