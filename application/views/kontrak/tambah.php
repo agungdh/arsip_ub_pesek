@@ -6,7 +6,7 @@
             </h2>
         </div>
         <div class="body">
-            <form method="post" action="<?php echo base_url('kontrak/aksi_tambah'); ?>">
+            <form method="post" action="<?php echo base_url('kontrak/aksi_tambah'); ?>" id="form">
 
                 <label for="nama_pekerjaan">Nama Pekerjaan</label>
                 <div class="form-group">

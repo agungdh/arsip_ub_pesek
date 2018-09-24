@@ -18,6 +18,7 @@ class Kontrak extends CI_Controller {
 
 	function tambah() {
 		$data['isi'] = 'kontrak/tambah';
+		$data['js'] = 'kontrak/tambah_js';
 		$data['nav'] = 'kontrak/nav';
 
 		$this->load->view('template/template', $data);
@@ -25,6 +26,7 @@ class Kontrak extends CI_Controller {
 
 	function ubah($id) {
 		$data['isi'] = 'kontrak/ubah';
+		$data['js'] = 'kontrak/ubah_js';
 		$data['nav'] = 'kontrak/nav';
 		$data['data']['kontrak'] = $this->db->get_where('kontrak', ['id_kontrak' => $id])->row();
 
@@ -32,6 +34,14 @@ class Kontrak extends CI_Controller {
 	}
 
 	function aksi_tambah() {
+		$kontrak = $this->db->get_where('kontrak', ['no_kl' => $this->input->post('data[no_kl]')])->row();
+
+		if ($kontrak != null) {
+			$this->session->set_flashdata('error', true);
+
+			redirect(base_url('kontrak/tambah'));
+		}
+
 		foreach ($this->input->post('data') as $key => $value) {
 			switch ($key) {
 				default:
@@ -62,6 +72,18 @@ class Kontrak extends CI_Controller {
 			}
 		}
 
+		$kontrak_master = $this->db->get_where('kontrak', ['id_kontrak' => $this->input->post('where[id_kontrak]')])->row();
+
+		if ($kontrak_master->no_kl != $data['no_kl']) {
+			$kontrak = $this->db->get_where('kontrak', ['no_kl' => $this->input->post('data[no_kl]')])->row();
+
+			if ($kontrak != null) {
+				$this->session->set_flashdata('error', true);
+
+				redirect(base_url('kontrak/ubah/' . $where['id_kontrak']));
+			}			
+		}
+
 		$this->db->update('kontrak', $data, $where);
 
 		redirect(base_url('kontrak'));
@@ -73,5 +95,4 @@ class Kontrak extends CI_Controller {
 
 		redirect(base_url('kontrak'));
 	}
-
 }
