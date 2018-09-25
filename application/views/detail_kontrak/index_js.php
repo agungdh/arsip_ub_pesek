@@ -1,7 +1,8 @@
 <script type="text/javascript">
 $(function () {
     $('.js-basic-example').DataTable({
-        responsive: true
+        responsive: true,
+        ordering: false,
     });
 });
 
@@ -22,4 +23,37 @@ function hapus(id) {
 $('[data-toggle="tooltip"]').tooltip({
     container: 'body'
 });
+</script>
+
+<script type="text/javascript">
+$(function() {
+    ajax();
+});
+
+$("#bulan").change(function() {
+    ajax();
+});
+
+$("#tahun").change(function() {
+    ajax();
+});
+
+$("#order").change(function() {
+    ajax();
+});
+
+function ajax() {
+    $.ajax({
+      type: "POST",
+      url: "<?php echo base_url('detail_kontrak/ajax'); ?>",
+      data: {
+        bulan : $("#bulan").val(),
+        tahun : $("#tahun").val(),
+        order : $("#order").val(),
+      },
+      success: function(data) {
+        $("tbody").html(data);
+      }
+    });
+}
 </script>

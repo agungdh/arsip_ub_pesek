@@ -34,7 +34,7 @@
         </div>
         <div class="body">
 
-                <label for="bulan">Bulan</label>
+                <label for="bulan">Urut Berdasarkan</label>
                 <div class="form-group">
                     <select class="form-control show-tick" data-live-search="true" id="order">
                       <option value="tanggala">Tanggal Terendah</option>
@@ -76,12 +76,12 @@
                         <thead>
                             <tr>
                                 <th style="text-align: center;">NO</th>
+                                <th style="text-align: center;">NO KL</th>
                                 <th style="text-align: center;">Nama Pekerjanaan</th>
                                 <th style="text-align: center;">Nama Unit</th>
                                 <th style="text-align: center;">Lokasi</th>
                                 <th style="text-align: center;">Tanggal Mulai Kontrak</th>
                                 <th style="text-align: center;">Tanggal Selesai Kontrak</th>
-                                <th style="text-align: center;">NO KL</th>
                                 <th style="text-align: center;">Nilai</th>
                                 <th style="text-align: center;">Proses</th>
                             </tr>

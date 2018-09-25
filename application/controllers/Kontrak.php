@@ -135,12 +135,12 @@ class Kontrak extends CI_Controller {
 		?>
 		<tr>
 		  <td><?php echo $i++; ?></td>
+		  <td><?php echo $item->no_kl; ?></td>
 		  <td><?php echo $item->nama_pekerjaan; ?></td>
 		  <td><?php echo $this->db->get_where('unit', ['id_unit' => $item->id_unit])->row()->nama_unit; ?></td>
 		  <td><?php echo $this->db->get_where('lokasi', ['id_lokasi' => $item->id_lokasi])->row()->nama_lokasi; ?></td>
 		  <td><?php echo $this->pustaka->tanggal_indo($item->tgl_mulai_kontrak); ?></td>
 		  <td><?php echo $this->pustaka->tanggal_indo($item->tgl_selesai_kontrak); ?></td>
-		  <td><?php echo $item->no_kl; ?></td>
 		  <td><?php echo $this->pustaka->rupiah($item->nilai); ?></td>
 		    <td style="text-align: center;">
 		      <?php
