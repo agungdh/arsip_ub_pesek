@@ -58,19 +58,24 @@
                 </h2>
             </div>
             <div class="body">
-                <?php
-                if ($this->session->level == 'a') {
-                  ?>
                   <div class="button-demo">
+                    <?php
+                    if ($this->session->level == 'a') {
+                      ?>
                     <a href="<?php echo base_url('detail_kontrak/tambah'); ?>">
                       <button type="button" class="btn bg-blue waves-effect">
                         <i class="material-icons">add</i>Tambah Detail Kontrak
                       </button>
                     </a>
+                      <?php
+                    } 
+                    ?>
+                    <a href="javascript:void(0)" onclick="laporan()">
+                      <button type="button" class="btn bg-blue waves-effect">
+                        <i class="material-icons">file_download</i> Laporan
+                      </button>
+                    </a>
                   </div>
-                  <?php
-                } 
-                ?>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                         <thead>
@@ -87,13 +92,6 @@
                                 <th style="text-align: center;">Nama Perusahaan</th>
                                 <th style="text-align: center;">Status</th>
                                 <th style="text-align: center;">Berkas</th>
-                                <?php
-                                if ($this->session->level == 'a') {
-                                  ?>
-                                  <th style="text-align: center;">Proses</th>
-                                  <?php
-                                }
-                                ?>
                             </tr>
                         </thead>
                         <tbody>

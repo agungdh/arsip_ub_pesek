@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use Apfelbox\FileDownload\FileDownload;
+use Dompdf\Dompdf;
 
 class Detail_kontrak extends CI_Controller {
 	function __construct(){
@@ -169,6 +170,14 @@ class Detail_kontrak extends CI_Controller {
         </tr>
         <?php
       }
+	}
+
+	function pdf($bulan, $tahun, $order) {
+		$dompdf = new Dompdf();
+		$dompdf->loadHtml($this->load->view('detail_kontrak/pdf', compact('bulan', 'tahun', 'order'), TRUE));
+		$dompdf->setPaper('A4', 'landscape');
+		$dompdf->render();
+		$dompdf->stream();
 	}
 
 }

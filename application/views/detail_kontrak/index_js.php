@@ -57,3 +57,9 @@ function ajax() {
     });
 }
 </script>
+
+<script type="text/javascript">
+    function laporan() {
+        window.location = "<?php echo base_url('detail_kontrak/pdf/'); ?>" + $("#bulan").val() + '/' + $("#tahun").val() + '/' + $("#order").val();
+    }
+</script>
