@@ -18,6 +18,7 @@
                     <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                         <thead>
                             <tr>
+                                <th style="text-align: center;">NO</th>
                                 <th style="text-align: center;">Nama Perusahaan</th>
                                 <th style="text-align: center;">Nama Direktur</th>
                                 <th style="text-align: center;">Alamat</th>
@@ -27,9 +28,11 @@
                         </thead>
                         <tbody>
                           <?php
+                          $i = 1;
                           foreach ($this->db->get('cv_pt')->result() as $item) {
                             ?>
                             <tr>
+                              <td><?php echo $i++; ?></td>
                               <td><?php echo $item->nama_perusahaan; ?></td>
                               <td><?php echo $item->nama_direktur; ?></td>
                               <td><?php echo $item->alamat; ?></td>

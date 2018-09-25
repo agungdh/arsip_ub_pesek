@@ -24,6 +24,7 @@
                     <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                         <thead>
                             <tr>
+                                <th style="text-align: center;">NO</th>
                                 <th style="text-align: center;">Nama Pekerjaan</th>
                                 <th style="text-align: center;">Lokasi</th>
                                 <th style="text-align: center;">Nilai RAB (Rp)</th>
@@ -46,9 +47,11 @@
                         </thead>
                         <tbody>
                           <?php
+                          $i = 1;
                           foreach ($this->db->query('SELECT *, YEAR(k.tgl_mulai_kontrak) tahun_kontrak FROM detail_kontrak dk, kontrak k, unit u, lokasi l, cv_pt cv WHERE dk.id_kontrak = k.id_kontrak AND k.id_unit = u.id_unit AND k.id_lokasi = l.id_lokasi AND dk.id_cv_pt = cv.id_cv_pt')->result() as $item) {
                             ?>
                             <tr>
+                              <td><?php echo $i++; ?></td>
                               <td><?php echo $item->nama_pekerjaan; ?></td>
                               <td><?php echo $item->nama_lokasi; ?></td>
                               <td><?php echo $this->pustaka->rupiah($item->nilai); ?></td>

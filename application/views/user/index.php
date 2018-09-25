@@ -18,6 +18,7 @@
                     <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                         <thead>
                             <tr>
+                                <th style="text-align: center;">NO</th>
                                 <th style="text-align: center;">Nama</th>
                                 <th style="text-align: center;">Username</th>
                                 <th style="text-align: center;">Level</th>
@@ -26,9 +27,11 @@
                         </thead>
                         <tbody>
                           <?php
+                          $i = 1;
                           foreach ($this->db->get('user')->result() as $item) {
                             ?>
                             <tr>
+                              <td><?php echo $i++; ?></td>
                               <td><?php echo $item->nama; ?></td>
                               <td><?php echo $item->username; ?></td>
                               <?php
