@@ -19,7 +19,7 @@
 		</tbody>
 	</table>
 
-	<table border="1">
+	<table border="1" width="100%">
         <thead>
             <tr>
                 <th style="text-align: center;">NO</th>

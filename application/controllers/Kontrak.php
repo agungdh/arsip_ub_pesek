@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use Dompdf\Dompdf;
+
 class Kontrak extends CI_Controller {
 	function __construct(){
 		parent::__construct();
@@ -137,8 +139,8 @@ class Kontrak extends CI_Controller {
 		  <td><?php echo $i++; ?></td>
 		  <td><?php echo $item->no_kl; ?></td>
 		  <td><?php echo $item->nama_pekerjaan; ?></td>
-		  <td><?php echo $this->db->get_where('unit', ['id_unit' => $item->id_unit])->row()->nama_unit; ?></td>
-		  <td><?php echo $this->db->get_where('lokasi', ['id_lokasi' => $item->id_lokasi])->row()->nama_lokasi; ?></td>
+		  <td><?php echo $item->nama_unit; ?></td>
+		  <td><?php echo $item->nama_lokasi; ?></td>
 		  <td><?php echo $this->pustaka->tanggal_indo($item->tgl_mulai_kontrak); ?></td>
 		  <td><?php echo $this->pustaka->tanggal_indo($item->tgl_selesai_kontrak); ?></td>
 		  <td><?php echo $this->pustaka->rupiah($item->nilai); ?></td>
@@ -163,5 +165,13 @@ class Kontrak extends CI_Controller {
 		</tr>
 		<?php
 		}
+	}
+
+	function pdf($bulan, $tahun, $order) {
+		$dompdf = new Dompdf();
+		$dompdf->loadHtml($this->load->view('kontrak/pdf', compact('bulan', 'tahun', 'order'), TRUE));
+		$dompdf->setPaper('A4', 'landscape');
+		$dompdf->render();
+		$dompdf->stream();
 	}
 }
